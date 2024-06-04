@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="bg-light2 dark:bg-dark h-fit overflow-x-hidden select-none"
-    
-  >
+  <div class="bg-light2 dark:bg-dark h-fit overflow-x-hidden select-none">
     <!-- <transition
       enter-active-class="slide-to-right"
       leave-active-class="slide-to-left"
@@ -12,29 +9,16 @@
         <component :is="Component" />
       </transition>
     </router-view>
-    <!-- </transition> -->
-    <!-- <theNav />
-
-    <theContent /> -->
   </div>
 </template>
-<script>
-// import theNav from "@/components/views/theNav.vue";
-// import theContent from "@/components/views/theContent.vue";
-export default {
-  components: {
-    // theContent,
-    // theNav,
-  },
-};
-</script>
+
 <style scoped>
 .page-enter-active {
-  animation: emergence 0.4s ease-out;
+  animation: emergence 0.3s ease-out;
 }
 /* .page-enter-active, */
 .page-leave-active {
-  transition: 0.3s ease all;
+  transition: 0.2s ease all;
 }
 .page-enter-from,
 .page-leave-to {

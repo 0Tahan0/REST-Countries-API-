@@ -36,7 +36,7 @@
         </the-select>
       </div>
       <div
-        class="flex mt-10 flex-wrap gap-10 items-center justify-evenly lg:justify-between"
+        class="grid grid-cols-1 justify-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-10"
       >
         <transition-group
           enter-active-class="emergence"
@@ -46,7 +46,7 @@
             @click="showMoreDetails(country.name)"
             v-for="country in countries"
             :key="country.alpha3Code"
-            class="h-80 w-64 py-0 px-0 md:py-0 md:px-0 overflow-hidden rounded-lg bg-light dark:bg-dark2 active:scale-95 md:hover:scale-95 transition-transform cursor-pointer"
+            class="||| h-72 w-60 py-0 px-0 md:py-0 md:px-0 overflow-hidden rounded-lg bg-light dark:bg-dark2 active:scale-95 md:hover:scale-95 transition-transform cursor-pointer"
           >
             <div class="h-1/2">
               <img

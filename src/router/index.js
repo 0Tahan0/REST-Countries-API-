@@ -1,21 +1,25 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 const routes = [
   {
-    path: "/country",
+    path: "/",
     name: "base content",
     component: () => import("@/pages/baseView.vue"),
-    alias: "/",
+    // alias: process.env.BASE_URL,
   },
   {
     path: "/country/:id",
     props: true,
     component: () => import("@/components/views/countryView.vue"),
-    // props: true,
+  },
+  {
+    path: "",
+    component: () => import("@/pages/baseView.vue"),
   },
 ];
+// console.log(process.env);
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  // history: createWebHistory(),
+  // history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(),
   routes,
 });
 export default router;

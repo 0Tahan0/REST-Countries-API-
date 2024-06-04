@@ -1,5 +1,6 @@
 <template>
-  <div class="h-fit flex flex-col" ref="countryView">
+  <notFound v-if="!country" />
+  <div v-else class="h-fit flex flex-col" ref="countryView">
     <the-nav></the-nav>
 
     <div
@@ -13,7 +14,7 @@
         <span>Back</span>
       </the-button>
       <div class="flex md:gap-10 md:flex-row flex-col h-full mt-10 mb-5">
-        <div class="md:w-1/2 shadow-md">
+        <div class="md:w-1/2 flex justify-center items-center">
           <img
             :src="
               country.name.toLocaleLowerCase() === 'toilet paper'
@@ -84,8 +85,10 @@
   </div>
 </template>
 <script>
+import notFound from "./notFound.vue";
 export default {
   props: ["id"],
+  components: { notFound },
   data() {
     return {
       country: null,
@@ -133,29 +136,42 @@ export default {
   },
   computed: {
     getBorderCountries() {
-      return this.country.borders
-        ? this.country.borders.map((c) => {
-            return (c = this.$store.getters.getCountry({
-              key: "alpha3Code",
-              value: c,
-            }));
-          })
-        : "";
+      if (this.country) {
+        return this.country.borders
+          ? this.country.borders.map((c) => {
+              return (c = this.$store.getters.getCountry({
+                key: "alpha3Code",
+                value: c,
+              }));
+            })
+          : "";
+      }
+      return "";
     },
     getDomain() {
       return this.country.topLevelDomain.join().replaceAll(",", " , ");
     },
     getCurrencies() {
-      return this.country.currencies
-        .map((c) => (c = c.name))
-        .join()
-        .replaceAll(",", " , ");
+      if (this.country) {
+        return this.country.currencies
+          ? this.country.currencies
+              .map((c) => (c = c.name))
+              .join()
+              .replaceAll(",", " , ")
+          : "unknown";
+      }
+      return "";
     },
     getLanguages() {
-      return this.country.languages
-        .map((c) => (c = c.name))
-        .join()
-        .replaceAll(",", " , ");
+      if (this.country) {
+        return this.country.languages
+          ? this.country.languages
+              .map((c) => (c = c.name))
+              .join()
+              .replaceAll(",", " , ")
+          : "unknown";
+      }
+      return "";
     },
   },
   methods: {
