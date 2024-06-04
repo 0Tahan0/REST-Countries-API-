@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+:root {
+  --dark: hsl(207, 26%, 17%);
+  --dark2: hsl(209, 23%, 22%);
+  --light: hsl(0, 0%, 100%);
+  --light2: hsl(0, 0%, 98%);
+  --lightTextColor: hsl(200, 15%, 8%);
+  --lightInputColor: hsl(0, 0%, 52%);
+
+  /* 
+  
+  - Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
+  - Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
+  
+  */
+}
+html[data-mode="dark"] * {
+  /* color: var(--darkTextElementColor) !important; */
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  /* background-color: #efefefff; */
+}
+html[data-mode="dark"] {
+  color-scheme: dark;
+}
+
+.slide {
+  animation-name: slide;
+  animation-duration: 0.3s;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+.slide-up {
+  animation-name: slideUp;
+  animation-duration: 0.3s;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+.slide-to-right {
+  animation: slideRight 0.3s linear forwards;
+}
+@keyframes slideRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+.slide-to-left {
+  animation: slideLeft 0.3s linear forwards;
+}
+@keyframes slideLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.fade {
+  animation: fade 0.2s ease-in;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-out {
+  animation: fade-out 0.2s ease-out;
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.emergence {
+  animation: emergence 0.2s ease-out;
+}
+@keyframes emergence {
+  0% {
+    opacity: 0;
+    scale: 0.9;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.1;
+  }
+  100% {
+    scale: 1;
+  }
+}
+.shrinkage {
+  animation: shrinkage 0.2s ease-out;
+}
+@keyframes shrinkage {
+  0% {
+    scale: 1;
+  }
+  50% {
+    opacity: 0.5;
+    scale: 0.9;
+  }
+  100% {
+    opacity: 0;
+    scale: 0.7;
+  }
+}
